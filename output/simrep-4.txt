@@ -1,0 +1,12 @@
+CPN Tools simulation report for:
+/cygdrive/C/Users/Aluno IC/Documents/CPN/test.cpn
+Report generated: Mon Dec 17 13:05:23 2018
+
+1	0	 @ (1:New_Subpage)
+ - n = 1
+2	0	 @ (1:New_Page)
+ - n = 0
+3	0	 @ (1:New_Page)
+ - n = 1
+4	0	 @ (1:New_Page)
+ - n = 1

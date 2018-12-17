@@ -1,0 +1,13 @@
+CPN Tools simulation report for:
+/cygdrive/C/Users/Aluno IC/Documents/CPN/agua.cpn
+Report generated: Mon Dec  3 13:42:10 2018
+
+1	0	H2 @ (1:Agua)
+2	0	H2 @ (1:Agua)
+3	0	H2 @ (1:Agua)
+4	0	H2 @ (1:Agua)
+5	0	H2 @ (1:Agua)
+6	0	H2 @ (1:Agua)
+7	0	T1 @ (1:Agua)
+8	0	T1 @ (1:Agua)
+9	0	O2 @ (1:Agua)

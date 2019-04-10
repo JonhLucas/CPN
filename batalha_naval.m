@@ -2,7 +2,7 @@ t = 1; % número de matriz de geradas
 for j = 1:t  % laço principal
    m = zeros(10); % inicialização da matriz de zeros
    aux = zeros(10);
-   navios = randi([1 10]); % sorteio da quantidade de navios
+   navios = randi([3 10]); % sorteio da quantidade de navios
    for i = 1:navios % laço secundário, responsável por escrever cada navio.
      tipo = randi([1 2]); % sorteio do tipo. 1 para navio com tamanho 2 e 3 para tamanho 3.
      orientacao = randi([1 2]); % sorteio da horientação, 1 para vertical e 2 para horizontal
@@ -49,6 +49,11 @@ for j = 1:t  % laço principal
          end
    end
 end
+
+
+
+
+
 ocupados = zeros(10);
 img = zeros(100,100); % fundo preto
 for(i = 1 : 10) % grade cinza
@@ -56,9 +61,10 @@ for(i = 1 : 10) % grade cinza
   img(:,10*i:10*i) = 1;
 end
 img(100,100) = 10;
-jogadas = 8; % numero de jogadas permitadas, defina quantas quiser
-m
-for(i = 1 : jogadas)
+figure
+imagesc(img);
+jogadas = 0; % numero de jogadas permitadas, defina quantas quiser
+while(jogadas < 3)
     l = input('informe a linha desejada:');
     c = input('informe a coluna desejada:');
     ocupados(l,c) = 1;
@@ -71,48 +77,57 @@ for(i = 1 : jogadas)
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img(l*10+1:l*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l+1)*10+1:(l+1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              jogadas = jogadas +1;
           else
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img(l*10+1:l*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              jogadas = jogadas +1;
           end
       elseif(aux(l,c) == 2 && ocupados(l-1,c))
           if(ocupados(l+1,c) && aux(l+1,c) ==  3)
               img((l-2)*10+1:(l-2)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img(l*10+1:l*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              jogadas = jogadas +1;
           elseif(aux(l+1,c) ~=  3)
               img((l-2)*10+1:(l-2)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              jogadas = jogadas +1;
           end
       elseif(aux(l,c) == 3 && ocupados(l-1,c) && ocupados(l-2,c))
           img((l-3)*10+1:(l-3)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           img((l-2)*10+1:(l-2)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+          jogadas = jogadas +1;
       elseif(aux(l,c) == 6 && ocupados(l,c-1) && ocupados(l,c-2))
           img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           img((l-1)*10+1:(l-1)*10+9,(c-2)*10+1:(c-2)*10+9) = 8;
           img((l-1)*10+1:(l-1)*10+9,(c-3)*10+1:(c-3)*10+9) = 8;
+          jogadas = jogadas +1;
       elseif(aux(l,c) == 5 && ocupados(l,c-1))
           if(ocupados(l,c+1) && aux(l,c+1) == 6)
               img((l-1)*10+1:(l-1)*10+9, c*10+1:c*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-2)*10+1:(c-2)*10+9) = 8;
+              jogadas = jogadas +1;
           elseif(aux(l,c+1) ~=  6)
               img((l-1)*10+1:(l-1)*10+9,(c-2)*10+1:(c-2)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              jogadas = jogadas +1;
           end
       elseif(aux(l,c) == 4 && ocupados(l,c+1))
           if(ocupados(l,c+2) && aux(l,c+2) == 6)
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+            jogadas = jogadas +1;
               img((l-1)*10+1:(l-1)*10+9,c*10+1:c*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c+1)*10+1:(c+1)*10+9) = 8;
           elseif(aux(l,c+2) ~=  6)
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              jogadas = jogadas +1;
               img((l-1)*10+1:(l-1)*10+9,c*10+1:c*10+9) = 8;
+              disp('Navio afundado!');
           end
       end
     end
-    aux 
-    figure
     imagesc(img);
 end

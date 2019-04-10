@@ -78,10 +78,12 @@ while(jogadas < 3)
               img(l*10+1:l*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l+1)*10+1:(l+1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               jogadas = jogadas +1;
+              disp('Navio afundado!');
           else
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img(l*10+1:l*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               jogadas = jogadas +1;
+              disp('Navio afundado!');
           end
       elseif(aux(l,c) == 2 && ocupados(l-1,c))
           if(ocupados(l+1,c) && aux(l+1,c) ==  3)
@@ -89,30 +91,36 @@ while(jogadas < 3)
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img(l*10+1:l*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               jogadas = jogadas +1;
+              disp('Navio afundado!');
           elseif(aux(l+1,c) ~=  3)
               img((l-2)*10+1:(l-2)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               jogadas = jogadas +1;
+              disp('Navio afundado!');
           end
       elseif(aux(l,c) == 3 && ocupados(l-1,c) && ocupados(l-2,c))
           img((l-3)*10+1:(l-3)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           img((l-2)*10+1:(l-2)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           jogadas = jogadas +1;
+          disp('Navio afundado!');
       elseif(aux(l,c) == 6 && ocupados(l,c-1) && ocupados(l,c-2))
           img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
           img((l-1)*10+1:(l-1)*10+9,(c-2)*10+1:(c-2)*10+9) = 8;
           img((l-1)*10+1:(l-1)*10+9,(c-3)*10+1:(c-3)*10+9) = 8;
           jogadas = jogadas +1;
+          disp('Navio afundado!');
       elseif(aux(l,c) == 5 && ocupados(l,c-1))
           if(ocupados(l,c+1) && aux(l,c+1) == 6)
               img((l-1)*10+1:(l-1)*10+9, c*10+1:c*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-2)*10+1:(c-2)*10+9) = 8;
               jogadas = jogadas +1;
+              disp('Navio afundado!');
           elseif(aux(l,c+1) ~=  6)
               img((l-1)*10+1:(l-1)*10+9,(c-2)*10+1:(c-2)*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
+              disp('Navio afundado!');
               jogadas = jogadas +1;
           end
       elseif(aux(l,c) == 4 && ocupados(l,c+1))
@@ -121,6 +129,7 @@ while(jogadas < 3)
             jogadas = jogadas +1;
               img((l-1)*10+1:(l-1)*10+9,c*10+1:c*10+9) = 8;
               img((l-1)*10+1:(l-1)*10+9,(c+1)*10+1:(c+1)*10+9) = 8;
+              disp('Navio afundado!');
           elseif(aux(l,c+2) ~=  6)
               img((l-1)*10+1:(l-1)*10+9,(c-1)*10+1:(c-1)*10+9) = 8;
               jogadas = jogadas +1;

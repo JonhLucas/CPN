@@ -9,13 +9,15 @@ def sum_10(list, begin, end, total):
             a = x
             b = list[middle]
         elif (x + list[middle]) > total:
+            print('middle <-')
             e, f = sum_10(list, begin, middle, total)
             if ((int(f) - int(e)) < (b - a)):
                 b = int(f)
                 a = int(e)
         else:
+            print('middle ->')
             e, f = sum_10(list, begin, middle, total)
-            if ((int(f) - int(e)) < (b - a)):
+            if (int(f) - int(e) < b - a):
                 b = int(f)
                 a = int(e)
         begin+=1

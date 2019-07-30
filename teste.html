@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>
+                Atributos Globais
+            </h1>
+        </header>
+    </article>
+      <ul id="itens" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+        <p>campo1</p>
+          <li id = "1" draggable="true" ondragstart="return dragStart(event)">1</li>
+          <li id = "2" draggable="true" ondragstart="return dragStart(event)">2</li>
+          <li id = "3" draggable="true" ondragstart="return dragStart(event)">3</li>
+      </ul>
+      <ul  ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+          <p>campo2</p>
+      </ul>
+      <form action="">
+        <br>
+        <p><h1>Draggable</h1></p>
+        <div id="produtos" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+            Lista de produtos
+            <div id = "produto1" draggable="true" ondragstart="return dragStart(event)">
+                livro
+            </div>
+            <div id = "produto2" draggable="true" ondragstart="return dragStart(event)">
+                notebook
+            </div>
+            <div id = "produto3" draggable="true" ondragstart="return dragStart(event)">
+                celular
+            </div>
+        </div>
+        <div id="carrinho" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
+            Carrinho de compras
+        </div>
+      </form>
+        <br>
+</body>
+</html>

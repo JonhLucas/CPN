@@ -1,0 +1,31 @@
+#produtos, #carrinho
+{
+    float: left;
+    width: 350px;
+    height: 350px;
+}
+#produtos
+{
+    background-color: red;
+    float: left;
+}
+#carrinho
+{
+    background-color: yellow;
+    
+}
+#produto1
+{
+    background-color: blue;
+    margin: 15px;
+}
+#produto2
+{
+    background-color: green;
+    margin: 15px;
+}
+#produto3
+{
+    background-color: grey;
+    margin: 15px;
+}

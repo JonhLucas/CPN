@@ -1,3 +1,6 @@
+keeper = True
+
+
 def validade(p):
     g = p[0] >= p[1]
     e = (p[0] < p[1]) and (p[0] == 0)
@@ -9,9 +12,12 @@ def validade(p):
 
 
 def vitoria(p):
-    return p == [0,0,3,3]
-def ida(place, l1, l2, keep):
+    return p == [0, 0, 3, 3]
+
+
+def ida(place, l1, l2):
     if validade(place):
+        local = []
         print("lado esquerdo", place)
         for i in range(3):
             for j in range(3 - i):
@@ -21,20 +27,20 @@ def ida(place, l1, l2, keep):
                     new_node[1] -= j
                     new_node[2] += i
                     new_node[3] += j
-                    if new_node not in l2 and keep:
-                        #history.append(new_node)
+                    if new_node not in l2 and [0, 0, 3, 3] not in l2:
+                        local.append(new_node)
                         l2.append(new_node)
-                        print("     incluir em l2:",new_node)
-                        volta(new_node, l1, l2, keep)
+        while len(local) != 0 and [0, 0, 3, 3] not in l2:
+            volta(local.pop(0), l1, l2)
     else:
         print("recusado no lado esquerdo:", place)
 
 
-def volta(place, l1, l2, keep2):
+def volta(place, l1, l2):
     if vitoria(place):
-        keep2 = False
         print("                         Achou")
     elif validade(place):
+        local = []
         print("lado direito", place)
         for i in range(3):
             for j in range(3 - i):
@@ -44,12 +50,11 @@ def volta(place, l1, l2, keep2):
                     new_node[1] += j
                     new_node[2] -= i
                     new_node[3] -= j
-                    print(i,j,":", new_node)
-                    if new_node not in l1 and keep2:
-                        #history.append(new_node)
+                    if new_node not in l1:
+                        local.append(new_node)
                         l1.append(new_node)
-                        print("     incluir em l1:", new_node)
-                        ida(new_node,l1,l2, keep2)
+        while len(local) != 0 and [0, 0, 3, 3] not in l2:
+            ida(local.pop(0), l1, l2)
     else:
         print("recusado no lado esquerdo:", place)
 
@@ -58,8 +63,6 @@ root = [3, 3, 0, 0]
 history = []
 l1 = [root]
 l2 = []
-keeper = True
-ida(root, l1, l2, keeper)
-print("Lado esquerdo:", l1)
-print("Lado direito:",l2)
-
+ida(root, l1, l2)
+print("*Lado esquerdo:", l1)
+print("*Lado direito:", l2)
